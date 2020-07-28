@@ -1,14 +1,6 @@
-package algri;
+package algorithm;
 
-public class graph {
-
-
-
-    /**
-     * 狄杰斯特拉
-     * @param m
-     * @param source
-     */
+public class Dijkstra {
     public static void dis(int[][] m, int source) {
         int shortest[] = new int[m.length];//最短路径长度
         boolean visited[] = new boolean[m.length];//s点集
@@ -43,5 +35,16 @@ public class graph {
             }
         }
         return;
+    }
+
+    public static void main(String[] argc) {
+        int n = 6;
+        int[][] a = {{0, 1, 12, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, 0, 9, 3, Integer.MAX_VALUE, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 5, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, 4, 0, 13, 15},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0, 4},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0}};
+        dis(a, 0);
     }
 }

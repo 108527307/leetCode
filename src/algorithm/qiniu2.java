@@ -2,7 +2,6 @@ package algorithm;
 
 import java.net.MalformedURLException;
 import java.util.Scanner;
-import java.util.Stack;
 import java.net.URL;
 
 public class qiniu2 {

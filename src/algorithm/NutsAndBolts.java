@@ -1,4 +1,4 @@
-package algri;
+package algorithm;
 
 class Nut extends NutsAndBolts {
     public int size;

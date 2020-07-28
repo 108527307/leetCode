@@ -1,4 +1,4 @@
-package algri;
+package algorithm;
 
 public class Tree {
 
