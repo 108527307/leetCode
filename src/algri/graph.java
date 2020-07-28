@@ -1,11 +1,14 @@
 package algri;
 
-public class graph {
+import java.util.ArrayDeque;
+import java.util.LinkedList;
 
+public class graph {
 
 
     /**
      * 狄杰斯特拉
+     *
      * @param m
      * @param source
      */
@@ -43,5 +46,62 @@ public class graph {
             }
         }
         return;
+    }
+
+    public static void bfs(int[][] m, int source) {
+        boolean visited[] = new boolean[m.length];//用来标记是否已经访问过
+
+        for (int i = 0; i < m.length; i++) { //这个for是用来防止存在离散点，所以从每个点都走一遍，当然有visited控制，不会出现效率问题
+            LinkedList<Integer> queue = new LinkedList<>();
+            int temp = i;
+            if (!visited[i]) {
+                queue.add(0);
+                visited[i] = true;
+            }
+            while (!queue.isEmpty()) {
+                temp = queue.poll();//取出当前队列头的点，然后将它的邻接点都再放入队列
+                System.out.print(temp);
+                for (int j = temp + 1; j < m.length; j++) {
+                    if (!visited[j] && m[temp][j] != Integer.MAX_VALUE) {
+                        queue.add(j);
+                        visited[j] = true;
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    //深度递归版本
+    public static void dfs(int[][] m) {
+        boolean flag[] = new boolean[m.length];
+        for (int i = 0; i < m.length; i++) {
+            dfss(m, flag, 0);
+        }
+    }
+
+    public static void dfss(int[][] m, boolean flag[], int i) {
+        if (!flag[i]) {
+            flag[i] = true;
+            System.out.print(i);
+        }
+        for (int j = i + 1; j < m.length; j++) {
+            if (!flag[j] && m[i][j] != Integer.MAX_VALUE) {
+                dfss(m, flag, j);
+            }
+        }
+    }
+
+    public static void main(String[] argc) {
+        int n = 6;
+        int[][] a = {{0, 1, 12, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, 0, 9, 3, Integer.MAX_VALUE, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 5, Integer.MAX_VALUE},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, 4, 0, 13, 15},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0, 4},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0}};
+        //dis(a, 0);
+        //bfs(a, 0);
+        dfs(a);
     }
 }
