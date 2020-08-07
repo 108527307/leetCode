@@ -4,17 +4,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-class ListNode {
-    public int val;
-    public ListNode next;
-
-    ListNode(int x) {
-        this.val = x;
-        this.next = null;
-
-    }
-}
-
 public class Q59 {
     ListNode max_list;
     int[] queue;
