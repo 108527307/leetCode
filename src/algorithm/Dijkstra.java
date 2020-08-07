@@ -1,5 +1,8 @@
 package algorithm;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Dijkstra {
     public static void dis(int[][] m, int source) {
         int shortest[] = new int[m.length];//最短路径长度
@@ -46,5 +49,7 @@ public class Dijkstra {
                 {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0, 4},
                 {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0}};
         dis(a, 0);
+
+        Map<String,String> map=new HashMap<>();
     }
 }
